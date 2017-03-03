@@ -1,0 +1,27 @@
+#profile_pic {
+    max-width: 750px;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    /*outline: 1px solid yellow;*/
+}
+
+#wrapper{
+    display: flex;
+    justify-content: center;
+    background-image: url("subtle.png");
+    height: 100vh;
+    padding: 0 20%;
+}
+
+#body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20vh 20vh;
+}

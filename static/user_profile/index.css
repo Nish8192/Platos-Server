@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    /*outline: 1px solid yellow;*/
+}
+
+#wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("subtle.png");
+}
+
+div.nav-wrapper{
+    padding: 0 12%;
+}
+
+#body, #footer{
+    padding: 0 16%;
+}
+
+/*****HEADER*****/
+
+div.nav-wrapper{
+    background-color:  #15253B;
+    color: #15253B;
+    box-shadow: inset 2px -5px 11px #344771;
+}
+
+div.nav-wrapper a:hover{
+    color: #CFC3EB;
+}
+
+
+/*****BODY*****/
+#body{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#body div.left-bar{
+    padding: 2%;
+    background-color: #6E71A4;
+}
+
+#body div.profile{
+    width: 50%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+p.aboutme{
+    padding-right: 2%;
+    text-align: justify;
+}
+
+p.interest{
+    margin-bottom: 1vh;
+}
+
+#divider{
+    height: 0.5vh;
+    width: 20vh;
+    margin: 4vh 0;
+    background-color: #6E71A4;
+}
