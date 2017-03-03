@@ -1,5 +1,4 @@
 *.pyc
-*.sqlite3
 Platos/media/login_register/avatar/*.jpg
 Platos/media/login_register/avatar/*.png
 Platos/media/login_register/avatar/*.jpeg
