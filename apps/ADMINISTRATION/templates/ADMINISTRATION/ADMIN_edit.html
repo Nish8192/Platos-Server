@@ -16,7 +16,7 @@
             <h2>Profile Photo</h2>
             <div class="section1">
                 {% for u in img %}
-                <img style="height:15vh;" id='profile_pic' src = "../../media/{{ u.avatar }}" />
+                <img style="height:15vh;" id='profile_pic' src = "https://s3.amazonaws.com/platos.social/{{ u.avatar }}" />
                 {% endfor %}
                 {% block content %}
                 <form class="profpic" action="{%url 'admin:ADMIN_image' user_id=user.id %}" method="POST" enctype="multipart/form-data">
