@@ -103,9 +103,9 @@ def ADMIN_resize(request, user_id):
         hsize = int((float(im.size[1])*float(wpercent)))
         im = im.resize((basewidth,hsize), Image.ANTIALIAS)
     img2 = im.crop(box)
-    savelocation = 'Platos/media/login_register/avatar/' + user + '.jpg'
+    savelocation = 'avatar/' + user + '.jpg'
     img2.save(savelocation,'JPEG')
-    location = 'login_register/avatar/' + user + '.jpg'
+    location = 'avatar/' + user + '.jpg'
     user_id = user_id
     delete = Images.objects.filter(user = user_id).delete()
     update = Images.objects.filter(user = user_id).create(avatar = location, user_id = user_id, resize = True)
