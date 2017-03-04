@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['54.152.223.66']
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'django_s3_storage',
     'apps.login_register',
     'apps.schedules',
