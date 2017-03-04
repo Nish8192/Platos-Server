@@ -35,7 +35,7 @@
                     <li style="margin-right:10px;"><a href="{% url 'user_profile:view_times' %}">Schedule</a></li>
                     <!-- Dropdown Trigger -->
                     <li>{%for u in AU_img%}
-                        <img class="circle" style="height:5vh;margin-top:8px;" id='profile_pic' src="../../media/{{ u.avatar }}" />
+                        <img class="circle" style="height:5vh;margin-top:8px;" id='profile_pic' src="https://s3.amazonaws.com/platos.social/{{ u.avatar }}" />
                     </li>
                     {% endfor %}
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
@@ -48,7 +48,7 @@
         <div id="body">
             <div class="left-bar">
               {% for u in img%}
-                <img id='profile_pic' src = "../../media/{{ u.avatar }}" />
+                <img id='profile_pic' src = "https://s3.amazonaws.com/platos.social/{{ u.avatar }}" />
               {% endfor %}
               <div class="left-bar-content">
                   {% if not user.id == active_user.id %}

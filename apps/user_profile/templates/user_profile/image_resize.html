@@ -40,7 +40,7 @@
     <div id="wrapper">
         <div id="body">
             {% for u in img %}
-            <img id='profile_pic' src = "../../media/{{ u.avatar }}" />
+            <img id='profile_pic' src = "https://s3.amazonaws.com/platos.social/{{ u.avatar }}" />
             {% endfor %}
             <form action="{%url 'user_profile:resize' %}" method="POST" />
             {% csrf_token %}

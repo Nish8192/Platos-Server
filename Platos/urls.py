@@ -22,9 +22,5 @@ urlpatterns = [
     url(r'^', include('apps.login_register.urls', namespace='login_register')),
     url(r'^main/', include('apps.main.urls', namespace='main')),
     url(r'^user_profile/', include('apps.user_profile.urls', namespace='user_profile')),
-    url(r'^ADMINISTRATION/', include('apps.ADMINISTRATION.urls', namespace = 'admin')),
-	static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^ADMINISTRATION/', include('apps.ADMINISTRATION.urls', namespace = 'admin'))
 ]
-
-if not settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

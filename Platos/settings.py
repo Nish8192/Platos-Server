@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,6 +30,7 @@ ALLOWED_HOSTS = ['54.152.223.66']
 # Application definition
 
 INSTALLED_APPS = [
+    'django_s3_storage',
     'apps.login_register',
     'apps.schedules',
     'apps.main',
@@ -125,8 +124,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
-
-MEDIA_URL = '/media/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+DEFAULT_FILE_STORAGE = "django_s3_storage.storage.S3Storage"
+
+# The AWS region to connect to.
+AWS_REGION = "us-east-1"
+
+#####INSERT AWS KEY HERE########
+
+# The name of the bucket to store files in.
+AWS_S3_BUCKET_NAME = "platos.social"
+
+# How to construct S3 URLs ("auto", "path", "virtual").
+AWS_S3_ADDRESSING_STYLE = "auto"

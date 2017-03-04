@@ -24,7 +24,7 @@ class Profile(models.Model):
 
 class Images(models.Model):
     user = models.ForeignKey(User, related_name="user_image")
-    avatar = models.ImageField(upload_to='login_register/avatar/', default='login_register/avatar/default/default.jpg')
+    avatar = models.ImageField(upload_to='/avatar/', default='/avatar/default/default.jpg')
     resize = models.BooleanField(default = True)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
