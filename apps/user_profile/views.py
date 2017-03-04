@@ -7,7 +7,7 @@ from ..schedules.models import Schedule, Day
 from .forms import ImgForm
 from PIL import Image
 import boto3
-s3 = boto3.resource('s3')
+from django.core.files.storage import default_storage as storage
 
 def index(request, user_id):
     user = User.objects.get(id = request.session['active_user_id'])
@@ -67,7 +67,8 @@ def resize(request):
     right = float(request.POST['cropx'])
     down = float(request.POST['cropy'])
     image = Images.objects.only('avatar').get(user_id = request.session['active_user_id']).avatar
-    im = Image.open(image)
+    open = storage.open(image, 'r')
+    im = Image.open(open)
     box = (right, down, 250+right, 250+down)
     if im.size[0] > 750:
         basewidth = 750
@@ -76,7 +77,9 @@ def resize(request):
         im = im.resize((basewidth,hsize), Image.ANTIALIAS)
     img2 = im.crop(box)
     savelocation = 'login_register/avatar/' + user + '.jpg'
-    img2.save(savelocation,'JPEG')
+    save = storage.open(savelocation, "w")
+    img2.save(save,'JPEG')
+    save.close()
     user_id = request.session.get('active_user_id')
     delete = Images.objects.filter(user = user_id).delete()
     update = Images.objects.filter(user = user_id).create(avatar = savelocation, user_id = user_id, resize = True)
