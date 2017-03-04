@@ -76,7 +76,7 @@ def resize(request):
         im = im.resize((basewidth,hsize), Image.ANTIALIAS)
     img2 = im.crop(box)
     savelocation = 'login_register/avatar/' + user + '.jpg'
-    img2.normal.save(savelocation,'JPEG')
+    img2.save(savelocation,'JPEG')
     user_id = request.session.get('active_user_id')
     delete = Images.objects.filter(user = user_id).delete()
     update = Images.objects.filter(user = user_id).create(avatar = savelocation, user_id = user_id, resize = True)
