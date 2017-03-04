@@ -6,6 +6,8 @@ import json
 from ..schedules.models import Schedule, Day
 from .forms import ImgForm
 from PIL import Image
+import boto3
+s3 = boto3.resource('s3')
 
 def index(request, user_id):
     user = User.objects.get(id = request.session['active_user_id'])
@@ -73,7 +75,7 @@ def resize(request):
         hsize = int((float(im.size[1])*float(wpercent)))
         im = im.resize((basewidth,hsize), Image.ANTIALIAS)
     img2 = im.crop(box)
-    savelocation = 'avatar/' + user + '.jpg'
+    savelocation = 'login_register/avatar/' + user + '.jpg'
     img2.normal.save(savelocation,'JPEG')
     user_id = request.session.get('active_user_id')
     delete = Images.objects.filter(user = user_id).delete()
